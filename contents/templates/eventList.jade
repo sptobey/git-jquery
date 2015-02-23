@@ -1,0 +1,34 @@
+block content
+    br
+    table
+        thead
+            tr
+                th Event
+                th Repository
+                th User
+                th Public
+                th Year
+        tbody
+            each item in items
+                tr
+                    td 
+                        div.twelve.columns
+                           a(href="#", onClick='myEvent("' + item.id + '")')
+                                = item.type.slice(0,-5)
+                    td
+                        div.twelve.columns
+                            a(href= item.repo.url)
+                                = item.repo.name.substring(0,7) + "..."
+                    td
+                        div.twelve.columns
+                            = item.actor.login
+                    td
+                        div.twelve.columns
+                            if !item.public
+                                = "No"
+                            else
+                                = "Yes"
+                    td
+                        div.twelve.columns
+                            = item.created_at.substring(0,4)
+
