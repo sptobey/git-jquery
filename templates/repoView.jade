@@ -1,1 +1,68 @@
-h5= item.full_name
+h5(style='text-align: center')= item.full_name
+br
+div.row
+    div.six.columns 
+        b Description:
+    div.six.columns= item.description
+div.row
+    div.six.columns 
+        b Clone URL:
+    div.six.columns= item.clone_url
+div.row
+    div.six.columns
+        b Collaborators
+    div.six.columns
+        a(href= item.contributors_url)
+            = item.contributors_url
+div.row
+    div.six.columns 
+        b Date & Time Created:
+    div.six.columns= item.created_at.substring(0,10) + " at " + item.created_at.substring(11,19)
+div.row
+    div.six.columns 
+        b Last Updated:
+    div.six.columns= item.updated_at.substring(0,10) + " at " + item.updated_at.substring(11,19)
+div.row
+    div.six.columns 
+        b Language:
+    div.six.columns= item.language
+div.row
+    div.six.columns 
+        b More Languages:
+    div.six.columns
+        a(href= item.languages_url)
+            = item.languages_url
+div.row
+    div.six.columns 
+        b Size:
+    div.six.columns= item.size
+div.row
+    div.six.columns 
+        b Profile:
+    div.six.columns
+        a(href= item.owner.html_url)
+            = item.owner.login
+div.row
+    div.six.columns 
+        b Stargazers:
+    div.six.columns= item.stargazers_count
+div.row
+    div.six.columns 
+        b Watchers:
+    div.six.columns= item.watchers_count
+div.row
+    div.six.columns 
+        b Has Wiki:
+    div.six.columns= item.has_wiki
+div.row
+    div.six.columns 
+        b Has Pages:
+    div.six.columns= item.has_pages
+div.row
+    div.six.columns 
+        b Has Issues:
+    div.six.columns= item.has_issues
+div.row
+    div.six.columns 
+        b Has Downloads:
+    div.six.columns= item.has_downloads

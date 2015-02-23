@@ -1,0 +1,86 @@
+h5(style='text-align: center')= item.type.slice(0,-5)
+br
+div.row
+    div.six.columns 
+        b Event ID:
+    div.six.columns= item.id
+div.row
+    div.six.columns 
+        b Repository:
+    div.six.columns= item.repo.name
+div.row
+    div.six.columns 
+        b Repository ID:
+    div.six.columns= item.repo.id
+div.row
+    div.six.columns 
+        b Repository URL:
+    div.six.columns
+        a(href= item.repo.url)
+            = item.repo.url
+div.row
+    div.six.columns 
+        b Date & Time Created:
+    div.six.columns= item.created_at.substring(0,10) + " at " + item.created_at.substring(11,19)
+
+if item.type == "ForkEvent" && item.org
+    div.row
+        div.six.columns 
+            b Origin Name:
+        div.six.columns= item.org.login
+    div.row
+        div.six.columns 
+            b Origin ID:
+        div.six.columns= item.org.id
+    div.row
+        div.six.columns 
+            b Origin URL:
+        div.six.columns 
+            a(href= item.org.url)
+                item.org.url
+    div.row
+        div.six.columns
+            b Origin Picture:
+        div.six.columns
+            img(src= item.org.avatar_url)
+            
+if item.type == "PullRequestEvent"
+    div.row
+        div.six.columns 
+            b Commits:
+        div.six.columns= item.payload.pull_request.commits
+    div.row
+        div.six.columns 
+            b Additions:
+        div.six.columns= item.payload.pull_request.additions
+    div.row
+        div.six.columns 
+            b Deletions:
+        div.six.columns= item.payload.pull_request.deletions
+    div.row
+        div.six.columns
+            b Pull URL:
+        div.six.columns
+            a(href= item.payload.pull_request.html_url)
+                = item.payload.pull_request.html_url
+    div.row
+        div.six.columns
+            b Diff URL:
+        div.six.columns 
+            a(href= item.payload.pull_request.diff_url)
+                = item.payload.pull_request.diff_url
+
+div.row
+    div.six.columns 
+        b User ID:
+    div.six.columns= item.actor.id
+div.row
+    div.six.columns 
+        b User URL:
+    div.six.columns= item.actor.url
+div.row
+    div.six.columns
+        b User Picture:
+    div.six.columns
+        img(src= item.actor.avatar_url)
+

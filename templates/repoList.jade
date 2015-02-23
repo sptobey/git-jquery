@@ -1,8 +1,29 @@
-each item in items
-    div.row 
-        div.six.columns
-            a(href="#", onClick='repoView("' + item.full_name + '")')
-                = item.full_name
-        div.six.columns
-            = item.open_issues
-            |  issues
+block content
+    br
+    table
+        thead
+            tr
+                th Reopository
+                th User
+                th Year
+                th Forks
+                th Issues
+        tbody
+            each item in items
+                tr
+                    td 
+                        div.twelve.columns
+                            a(href="#", onClick='repoView("' + item.full_name + '")')
+                                = item.name
+                    td
+                        div.twelve.columns
+                            = item.owner.login
+                    td
+                        div.twelve.columns
+                            = item.created_at.substring(0,4)
+                    td
+                        div.twelve.columns
+                            = item.forks_count
+                    td
+                        div.twelve.columns
+                            = item.open_issues
