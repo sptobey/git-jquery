@@ -6,7 +6,7 @@ function myRepos(){
     $.get("https://api.github.com/users/sptobey/repos", github, function(data) {
         
         var repos = data
-        console.log(repos[0])
+        //console.log(repos[0])
         
         $.get("/git-jquery/templates/repoList.jade", function(template) {
 

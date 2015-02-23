@@ -6,7 +6,7 @@ function myEvents(){
     $.get("https://api.github.com/users/sptobey/events", github, function(data) {
         
         var events = data
-        console.log(events[0])
+        //console.log(events[0])
         
         $.get("/git-jquery/templates/eventList.jade", function(template) {
 
